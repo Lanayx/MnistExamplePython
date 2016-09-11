@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55f54b06-6036-433d-8dd0-661106c834db}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>run.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="data\mnist.pkl.gz" />
+    <Content Include="fig\backprop_magnitude_nabla.png" />
+    <Content Include="fig\digits.png" />
+    <Content Include="fig\digits_separate.png" />
+    <Content Include="fig\false_minima.png" />
+    <Content Include="fig\misleading_gradient.png" />
+    <Content Include="fig\misleading_gradient_contours.png" />
+    <Content Include="fig\mnist_100_digits.png" />
+    <Content Include="fig\mnist_2_and_1.png" />
+    <Content Include="fig\mnist_complete_zero.png" />
+    <Content Include="fig\mnist_first_digit.png" />
+    <Content Include="fig\mnist_other_features.png" />
+    <Content Include="fig\mnist_really_bad_images.png" />
+    <Content Include="fig\mnist_top_left_feature.png" />
+    <Content Include="fig\more_data.png" />
+    <Content Include="fig\more_data_5.png" />
+    <Content Include="fig\more_data_comparison.png" />
+    <Content Include="fig\more_data_log.png" />
+    <Content Include="fig\more_data_rotated_5.png" />
+    <Content Include="fig\multiple_eta.png" />
+    <Content Include="fig\overfitting1.png" />
+    <Content Include="fig\overfitting2.png" />
+    <Content Include="fig\overfitting3.png" />
+    <Content Include="fig\overfitting4.png" />
+    <Content Include="fig\overfitting_full.png" />
+    <Content Include="fig\pca_hard_data.png" />
+    <Content Include="fig\pca_hard_data_fit.png" />
+    <Content Include="fig\regularized1.png" />
+    <Content Include="fig\regularized2.png" />
+    <Content Include="fig\regularized_full.png" />
+    <Content Include="fig\replaced_by_d3\relu.png" />
+    <Content Include="fig\replaced_by_d3\sigmoid.png" />
+    <Content Include="fig\replaced_by_d3\step.png" />
+    <Content Include="fig\replaced_by_d3\tanh.png" />
+    <Content Include="fig\test.png" />
+    <Content Include="fig\training_speed_2_layers.png" />
+    <Content Include="fig\training_speed_3_layers.png" />
+    <Content Include="fig\training_speed_4_layers.png" />
+    <Content Include="fig\valley.png" />
+    <Content Include="fig\valley2.png" />
+    <Content Include="fig\weight_initialization_100.png" />
+    <Content Include="fig\weight_initialization_30.png" />
+    <Content Include="requirements.txt" />
+    <Content Include="src\old\cost_vs_iterations.png" />
+    <Content Include="src\old\cost_vs_iterations_trapped.png" />
+    <Content Include="src\old\mnist_100_30_deep_autoencoder.png" />
+    <Content Include="src\old\mnist_100_unit_autoencoder.png" />
+    <Content Include="src\old\mnist_10_unit_autoencoder.png" />
+    <Content Include="src\old\mnist_30_component_pca.png" />
+    <Content Include="src\old\mnist_30_unit_autoencoder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fig\backprop_magnitude_nabla.py" />
+    <Compile Include="fig\false_minima.py" />
+    <Compile Include="fig\generate_gradient.py" />
+    <Compile Include="fig\misleading_gradient.py" />
+    <Compile Include="fig\misleading_gradient_contours.py" />
+    <Compile Include="fig\mnist.py" />
+    <Compile Include="fig\more_data.py" />
+    <Compile Include="fig\multiple_eta.py" />
+    <Compile Include="fig\overfitting.py" />
+    <Compile Include="fig\pca_limitations.py" />
+    <Compile Include="fig\replaced_by_d3\relu.py" />
+    <Compile Include="fig\replaced_by_d3\sigmoid.py" />
+    <Compile Include="fig\replaced_by_d3\step.py" />
+    <Compile Include="fig\replaced_by_d3\tanh.py" />
+    <Compile Include="fig\serialize_images_to_json.py" />
+    <Compile Include="fig\valley.py" />
+    <Compile Include="fig\valley2.py" />
+    <Compile Include="fig\weight_initialization.py" />
+    <Compile Include="run.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\conv.py" />
+    <Compile Include="src\expand_mnist.py" />
+    <Compile Include="src\mnist_average_darkness.py" />
+    <Compile Include="src\mnist_loader.py" />
+    <Compile Include="src\mnist_svm.py" />
+    <Compile Include="src\network.py" />
+    <Compile Include="src\network2.py" />
+    <Compile Include="src\network3.py" />
+    <Compile Include="src\old\blog\common_knowledge.py" />
+    <Compile Include="src\old\blog\__init__.py" />
+    <Compile Include="src\old\deep_autoencoder.py" />
+    <Compile Include="src\old\deep_learning.py" />
+    <Compile Include="src\old\gradient_descent_hack.py" />
+    <Compile Include="src\old\mnist_autoencoder.py" />
+    <Compile Include="src\old\mnist_pca.py" />
+    <Compile Include="src\old\perceptron_learning.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="fig" />
+    <Folder Include="fig\replaced_by_d3" />
+    <Folder Include="src" />
+    <Folder Include="src\old" />
+    <Folder Include="src\old\blog" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
