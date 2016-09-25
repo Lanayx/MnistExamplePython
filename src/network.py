@@ -35,7 +35,8 @@ class Network(object):
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
         self.weights = [np.random.randn(y, x)
                         for x, y in zip(sizes[:-1], sizes[1:])]
-        self.count = 0;
+        self.backPropTime = 0;
+        self.nbwTime = 0;
 
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
@@ -64,8 +65,8 @@ class Network(object):
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
             if test_data:
-                print "Epoch {0}: {1} / {2} ({3})".format(
-                    j, self.evaluate(test_data), n_test, (time.time() - start_time))
+                print "Epoch {0}: {1} / {2} ({3})  BP: {4} NBW: {5}".format(
+                    j, self.evaluate(test_data), n_test, (time.time() - start_time), self.backPropTime, self.nbwTime)
             else:
                 print "Epoch {0} complete".format(j)
 
@@ -78,8 +79,10 @@ class Network(object):
         nabla_w = [np.zeros(w.shape) for w in self.weights]
         for x, y in mini_batch:
             delta_nabla_b, delta_nabla_w = self.backprop(x, y)
+            nbw = time.time()
             nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
             nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
+            self.nbwTime = self.nbwTime + (time.time() - nbw)
         self.weights = [w-(eta/len(mini_batch))*nw
                         for w, nw in zip(self.weights, nabla_w)]
         self.biases = [b-(eta/len(mini_batch))*nb
@@ -90,6 +93,9 @@ class Network(object):
         gradient for the cost function C_x.  ``nabla_b`` and
         ``nabla_w`` are layer-by-layer lists of numpy arrays, similar
         to ``self.biases`` and ``self.weights``."""
+
+        start_bp_time = time.time()
+
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
         # feedforward
@@ -118,6 +124,8 @@ class Network(object):
             delta = np.dot(self.weights[-l+1].transpose(), delta) * sp
             nabla_b[-l] = delta
             nabla_w[-l] = np.dot(delta, activations[-l-1].transpose())
+
+        self.backPropTime = self.backPropTime + (time.time() - start_bp_time)
         return (nabla_b, nabla_w)
 
     def evaluate(self, test_data):
